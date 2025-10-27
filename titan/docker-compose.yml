@@ -1,0 +1,39 @@
+services:
+  backend:
+    build:
+      context: ./backSrc
+      dockerfile: Dockerfile
+    container_name: titan-backend
+    ports:
+      - "8800:8800"
+    volumes:
+      # Mount the database to persist data
+      - ./backSrc/database.db:/app/database.db
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - titan-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    container_name: titan-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://backend:8800
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+    networks:
+      - titan-network
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+networks:
+  titan-network:
+    driver: bridge
+

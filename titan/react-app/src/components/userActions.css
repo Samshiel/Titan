@@ -1,0 +1,81 @@
+.userControls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.userControls button {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.userControls button:focus-visible {
+    outline: 3px solid #2196F3;
+    outline-offset: 2px;
+}
+
+.userControls button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.confirm-button:hover:not(:disabled) {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.correct-button:hover:not(:disabled) {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+
+.userControls input {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 16px;
+    min-width: 300px;
+    background-color: white;
+    transition: border-color 0.3s;
+}
+
+.userControls input:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.25);
+}
+
+.dark-mode .userControls input {
+    background-color: #2a2a2a;
+    border-color: #666;
+    color: white;
+}
+
+.dark-mode .userControls button {
+    background-color: #2a2a2a;
+    border-color: #666;
+    color: white;
+}
+

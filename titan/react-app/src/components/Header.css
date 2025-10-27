@@ -1,0 +1,23 @@
+.header-message {
+  font-size: 1.5em;
+  margin: 0.67em 0;
+  font-weight: normal;
+}
+
+.label-text,
+.confidence-text {
+  font-weight: bold;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
