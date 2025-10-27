@@ -7,8 +7,8 @@ services:
     ports:
       - "8800:8800"
     volumes:
-      # Mount the database to persist data
-      - ./backSrc/database.db:/app/database.db
+      # Use a named volume to persist database data
+      - titan-db-data:/app
     environment:
       - PYTHONUNBUFFERED=1
     networks:
@@ -36,4 +36,7 @@ services:
 networks:
   titan-network:
     driver: bridge
+
+volumes:
+  titan-db-data:
 
